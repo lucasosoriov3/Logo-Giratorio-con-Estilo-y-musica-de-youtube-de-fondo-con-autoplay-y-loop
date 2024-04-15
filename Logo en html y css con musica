@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang= "en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secretour</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://www.youtube.com/iframe_api"></script>
+    </head>
+    <body>
+        <div class="conteiner">
+            <div class="logo"></div>
+            <div class="bottom_part"></div>
+            <div id="player"></div>
+
+            <script>
+                var player;
+              
+                function onYouTubeIframeAPIReady() {
+                  player = new YT.Player('player', {
+                    height: '1', 
+                    width: '1', 
+                    videoId: 'OzzaPLEhQKY', 
+                    playerVars: {
+                      'autoplay': 1,
+                      'controls': 0,
+                      'loop': 1, 
+                      'playlist': 'OzzaPLEhQKY'
+                    },
+                    events: {
+                      'onReady': onPlayerReady
+                    }
+                  });
+                }
+              
+                function onPlayerReady(event) {
+                  event.target.playVideo();
+                }
+              </script>
+    </body>
+    
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(7, 7, 7);
+
+}
+
+.conteiner {
+    height: 400px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    perspective: 500px;
+
+}
+
+.logo {
+    width: 300px;
+    height: 230px;
+    background: url(logo.gif);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 10px;
+    filter: drop-shadow(0px 2px 10px #380faa);
+    animation: rotar 6s linear infinite;
+
+}
+.logo:hover{
+    cursor: pointer;
+
+}
+
+@keyframes rotar{
+    from{
+        transform: rotateY(180deg);
+
+    }
+    to{
+        transform: rotateY(540deg);
+
+    }
+    
+    }
+
+.bottom_part{
+    width: 9rem;
+    height: 10rem;
+    position:absolute;
+    bottom: 15px;
+    background: #0d0d0e;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px 10px #00000036;
+    transform: rotatex(90deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.botton_part::before{
+    content: "";
+    width: 9rem;
+    height: 10rem;
+    position: absolute;
+    bottom: 15rem;
+    background: #fafafa;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px 10px #fafafa;
+    filter: blur(30px);
+}
+.reproductor{
+    background-color: #0d0d0e;
+}
+   </style>
+</html>
